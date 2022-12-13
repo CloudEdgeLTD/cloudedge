@@ -39,4 +39,17 @@ sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
 
 kubectl version --client
 
+# set up autocomplete in bash into the current shell, bash-completion package should be installed first.
+source <(kubectl completion bash) 
+# add autocomplete permanently to your bash shell.
+echo "source <(kubectl completion bash)" >> ~/.bashrc 
+
+alias k=kubectl
+
+complete -o default -F __start_kubectl k
+
+curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
+
+
+
 exit 0
